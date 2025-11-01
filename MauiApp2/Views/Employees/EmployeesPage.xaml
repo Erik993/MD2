@@ -21,7 +21,9 @@
             <Label Grid.Row ="1" Grid.ColumnSpan="2" Text="Employee page" FontSize="24"></Label>
             <Button Grid.Row="2" Grid.Column="0" Text="Show Employees" Clicked="ShowEmployeesButtonClicked"></Button>
             <Button Grid.Row="2" Grid.Column="1" Text="Add Employee" Clicked="AddEmployeeButtonClicked"></Button>
-        
-        </Grid>
+            <Button Grid.Row="3" Grid.Column="0" Text="Save Employees to JSON file" Clicked="SaveEmployeesToJsonClicked"/>
+            <Button Grid.Row="3" Grid.Column="1" Text="Upload Employees from JSON file" Clicked="LoadEmployeesFromJsonClicked"/>
+
+    </Grid>
 
 </ContentPage>

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Library;
 
-namespace Library;
+namespace ClassLibrary.Models;
 
 public class Ticket
 {

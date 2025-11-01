@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AbtractClasses;
 
-namespace Library;
+namespace ClassLibrary.Models;
 
 public class Employee : User
 {

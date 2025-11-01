@@ -2,16 +2,24 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Maui.Storage;
 using System.Text.Json;
+using System.Diagnostics;
 
 
 
-namespace ServicesClasslib
+namespace Services
 {
     public class JsonFileManager
     {
-        //new folders name created in the project directory
-        private const string DirectoryPath = "Data";
+        //using Microsoft.Maui.Storage; works only in MAUI project,
+        //so the JsonFilemanager should be in MAUI project, not in the ClassLibrary
+
+        //new folder is created in the project directory
+        string DirectoryPath = Path.Combine(FileSystem.AppDataDirectory, "Data");
+
+        //workson windows only
+        //string DirectoryPath = Path.Combine(Environment.CurrentDirectory, "Data");
 
 
         // Object's type name (ex. Employee, Ticket) is saved to create ObjectName.json file in Data directory
@@ -25,7 +33,7 @@ namespace ServicesClasslib
             var options = new JsonSerializerOptions { WriteIndented = true };
             string json = JsonSerializer.Serialize(repositoryData, options);
             File.WriteAllText(fullpath, json);
-            //WriteLine($"{typeName} collection is saved in {fullpath}");
+            Debug.WriteLine($"Saving to: {fullpath}");
         }
 
         
@@ -44,7 +52,9 @@ namespace ServicesClasslib
             }
 
             string json = File.ReadAllText(fullpath);
+            Debug.WriteLine($"Loading from : {fullpath}");
             return JsonSerializer.Deserialize<List<T>>(json) ?? new List<T>();
+            
         }
     }
 }

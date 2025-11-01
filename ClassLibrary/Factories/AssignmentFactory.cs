@@ -1,6 +1,8 @@
 ﻿using System;
 using Library;
 using System.Linq;
+using ClassLibrary.Models;
+
 namespace Factories;
 
 public class AssignmentFactory

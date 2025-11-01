@@ -1,7 +1,5 @@
-﻿using AbstractClasses;
-using Library;
+﻿using ClassLibrary.Models;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 
 namespace MauiApp2.ViewModels
 {
@@ -13,14 +11,21 @@ namespace MauiApp2.ViewModels
         public string NewUserName { get; set; } = string.Empty;
         public string NewEmail { get; set; } = string.Empty;
         public bool NewIsActve { get; set; }
-       
 
 
+        //2 overloaded Add methods
         public void AddEmployee()
         {
             Employee empl = new(NewUserId, NewUserName, NewEmail, NewIsActve);
             Employees.Add(empl);
         }
+
+        public void AddEmployee(Employee employee)
+        {
+            Employees.Add(employee);
+        }
+
+
 
     }
 }
