@@ -10,8 +10,8 @@ public class Assignment
 {
     //Assigned At, Support, Ticket is not changable
     public DateTime AssignedAt { get; init; }
-    public ITSupport Support { get; init; }
-    public Ticket Ticket { get; init; }
+    public ITSupport Support { get; set; }
+    public Ticket Ticket { get; set; }
     public string Comment { get; set; } = string.Empty;
 
     // to-do: check if objects are null

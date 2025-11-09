@@ -5,11 +5,11 @@
              Title="AddITSupportPage">
     
     <VerticalStackLayout Padding="20" Spacing="15">
-        <Label Text="Add New ItSuppoer" FontSize="24" HorizontalOptions="Center"/>
+        <Label Text="Add New ItSupport" FontSize="24" HorizontalOptions="Center"/>
 
-        <Entry x:Name="IdInput" Placeholder="User ID"/>
+        <Entry x:Name="IdInput" Placeholder="User ID (integers only - no exception handling)"/>
         <Entry x:Name="NameInput" Placeholder="Name"/>
-        <Entry x:Name="EmailInput" Placeholder="Email"/>
+        <Entry x:Name="EmailInput" Placeholder="Email ( 1+ char, @ symbol, 1+ char .(dot) symbol, 1+ char"/>
         <Switch x:Name="IsActiveSwitch"/>
         <Picker x:Name="SpecializationPicker" Title="Select Specialization"></Picker>
 

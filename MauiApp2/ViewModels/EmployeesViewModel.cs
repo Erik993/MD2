@@ -20,9 +20,16 @@ namespace MauiApp2.ViewModels
             Employees.Add(empl);
         }
 
+
         public void AddEmployee(Employee employee)
         {
             Employees.Add(employee);
+        }
+
+
+        public void Reset()
+        {
+            Employees.Clear();
         }
 
 

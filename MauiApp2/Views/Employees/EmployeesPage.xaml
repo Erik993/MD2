@@ -22,7 +22,9 @@
             <Button Grid.Row="2" Grid.Column="0" Text="Show Employees" Clicked="ShowEmployeesButtonClicked"></Button>
             <Button Grid.Row="2" Grid.Column="1" Text="Add Employee" Clicked="AddEmployeeButtonClicked"></Button>
             <Button Grid.Row="3" Grid.Column="0" Text="Save Employees to JSON file" Clicked="SaveEmployeesToJsonClicked"/>
-            <Button Grid.Row="3" Grid.Column="1" Text="Upload Employees from JSON file" Clicked="LoadEmployeesFromJsonClicked"/>
+            <Button Grid.Row="3" Grid.Column="1" Text="Load Employees from JSON file" Clicked="LoadEmployeesFromJsonClicked"/>
+            <Button Grid.Row="4" Grid.Column="0" Text="Create 1 test Employee" Clicked="CreateTestEmployeesClicked"/>
+            <Button Grid.Row="4" Grid.Column="1" Text="Delete Employees from memory" Clicked="DeleteEmployeesClicked"/>
 
     </Grid>
 

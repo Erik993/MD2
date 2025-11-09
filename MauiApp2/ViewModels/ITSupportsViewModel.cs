@@ -1,4 +1,4 @@
-﻿using Library;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -33,5 +33,12 @@ namespace MauiApp2.ViewModels
         {
             ITSupports.Add(itSupport);
         }
+
+
+        public void Reset()
+        {
+            ITSupports.Clear();
+        }
+            
     }
 }

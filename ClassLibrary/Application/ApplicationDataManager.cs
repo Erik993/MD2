@@ -1,8 +1,10 @@
+/*
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Factories;
+using ClassLibraryFactories;
 using Interfaces;
 using Interfaces.Library;
 using Library;
@@ -10,6 +12,7 @@ using ClassLibrary.Models;
 using ServicesClasslib;
 
 namespace ApplicationManager;
+
 
 public class ApplicationDataManager : IDataManager
 {
@@ -26,14 +29,14 @@ public class ApplicationDataManager : IDataManager
     private TicketFactory? _ticketFactory = null; //= new TicketFactory(); null because Employees should be passed
     private AssignmentFactory? _assignmentFactory = null; // = new AssignmentFactory(); null beceause ITSupports and Tickets should be passed
 
-    /*
+    
     public void Print()
     {
         EmployeeRepo.Print();
         ITSupportRepo.Print();
         TicketRepo.Print();
         AssignmentRepo.Print();
-    }*/
+    }
 
     public void Save()
     {
@@ -85,13 +88,15 @@ public class ApplicationDataManager : IDataManager
         //WriteLine("---Loading Completed---");
     }
 
-    /*
+    
     1. Create Employees and ITSupports
     2. Update _ticketFactory. Need to pass all the Employees to the _ticketFactory
     3. Create Tickets
     4. Update _assignmentFactory. Need to pass all the ITSupports and Tickets to the _assignmentFactory
     5. Create Assignments
-    */
+    
+
+    
     public void CreateTestData(int count)
     {
         //WriteLine($"---Generating {count} test objects---");
@@ -104,11 +109,14 @@ public class ApplicationDataManager : IDataManager
         }
 
         //update factory, because Employees were made in previous step
+        
         _ticketFactory = new TicketFactory(EmployeeRepo);
         for (int i = 0; i < count; i++)
         {
             TicketRepo.Add(_ticketFactory.CreateItem(i));
         }
+
+        
 
         _assignmentFactory = new AssignmentFactory(ITSupportRepo, TicketRepo);
         for (int i = 0; i < count; i++)
@@ -116,6 +124,9 @@ public class ApplicationDataManager : IDataManager
             AssignmentRepo.Add(_assignmentFactory.CreateItem());
         }
         Console.WriteLine("--- Test Data Generation Complete ---");
+        
     }
+
     
 }
+*/

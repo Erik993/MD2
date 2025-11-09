@@ -1,7 +1,7 @@
 ﻿using System;
-using Library;
 using ClassLibrary.Models;
-namespace Factories;
+
+namespace ClassLibraryFactories;
 
 public class ITSupportFactory
 {

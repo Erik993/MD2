@@ -2,6 +2,7 @@ using MauiApp2.ViewModels;
 using Services;
 using MauiApp2.Views;
 using ClassLibrary.Models;
+using ClassLibraryFactories;
 
 using ITSupportModel = ClassLibrary.Models.ITSupport;
 
@@ -13,6 +14,7 @@ public partial class ITSupportsPage : ContentPage
 {
 	private ITSupportsViewModel _viewModel;
 	private JsonFileManager _jsonFileManager = new();
+	private ITSupportFactory _itSupportFactory = new();
     
     public ITSupportsPage(ITSupportsViewModel viewModel)
 	{
@@ -45,6 +47,20 @@ public partial class ITSupportsPage : ContentPage
 			_viewModel.AddITSupport(item);
 		}
         DisplayAlert("Success", "ItSupports loaded from JSON file.", "OK");
+    }
+
+	public void CreateTestITSupportClicked(object sender, EventArgs e)
+	{
+		var sup = _itSupportFactory.CreateItem(1);
+		_viewModel.AddITSupport(sup);
+
+        DisplayAlert("Success", "Test IT Support is created", "OK");
+    }
+
+	public void DeleteITSupportsClicked(object sender, EventArgs e)
+	{
+		_viewModel.Reset();
+        DisplayAlert("Success", "ITSupports are deleted from memory", "OK");
     }
 
 

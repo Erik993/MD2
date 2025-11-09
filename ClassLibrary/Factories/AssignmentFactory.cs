@@ -1,43 +1,49 @@
 ﻿using System;
-using Library;
 using System.Linq;
 using ClassLibrary.Models;
 
-namespace Factories;
+namespace ClassLibraryFactories;
 
 public class AssignmentFactory
 {
-    private ITSupportRepository _itSupportRepo;
-    private TicketRepository _ticketRepo;
+    //private ITSupportRepository _itSupportRepo;
+    //private TicketRepository _ticketRepo;
+
+    private IEnumerable<Ticket> _tickets;
+    private IEnumerable<ITSupport> _itSupports;
+    
 
     private Random _rand = new Random();
 
     
-    public AssignmentFactory(ITSupportRepository itSupRepo, TicketRepository ticketRepo)
+    public AssignmentFactory(IEnumerable<Ticket> tickets, IEnumerable<ITSupport> itSupports)
     {
-        _itSupportRepo = itSupRepo;
-        _ticketRepo = ticketRepo;
+        _tickets = tickets;
+        _itSupports = itSupports;
     }
 
 
     public Assignment CreateItem()
     {
-        var allItSupports = _itSupportRepo.GetAll(); // save all the elements
-        var allTickets = _ticketRepo.GetAll(); // save all the elements
+        //var allItSupports = _itSupportRepo.GetAll(); // save all the elements
+        // var allTickets = _ticketRepo.GetAll(); // save all the elements
+
+        var itSupportsList = _itSupports.ToList();
+        var ticketsList = _tickets.ToList();
 
         ITSupport? itSupport = null;
         Ticket? ticket = null;
 
-        if (allItSupports.Count > 0)
+        if (itSupportsList.Count > 0)
         {
             //save random element from sequence
-            itSupport = allItSupports.ElementAt(_rand.Next(0, allItSupports.Count()));
+            itSupport = itSupportsList.ElementAt(_rand.Next(0, itSupportsList.Count()));
         }
 
-        if (allTickets.Count > 0)
+        if (ticketsList.Count > 0)
         {
             //save random element from sequence
-            ticket = allTickets.ElementAt(_rand.Next(0, allTickets.Count()));
+            ticket = ticketsList.ElementAt(_rand.Next(0, ticketsList.Count()));
         }
 
         return new Assignment(
